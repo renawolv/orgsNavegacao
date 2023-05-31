@@ -13,6 +13,9 @@ export default function Produtor() {
     const { tituloProdutor, tituloCestas } = useTextos();  
     const { nome, imagem, cestas } = route.params;
 
+    console.log("Produtor recebeu: ");
+    console.log(route.params);
+
     const TopoLista = () => {
         return <>
             <Topo titulo={tituloProdutor} imagem={topo} altura={150} />
@@ -30,7 +33,7 @@ export default function Produtor() {
     return <FlatList 
         ListHeaderComponent={TopoLista}
         data={cestas} 
-        renderItem={({ item }) => <Cesta {...item} produtor={{nome, imagem}} />}
+        renderItem={({ item }) => <Cesta {...item} produtor={{nome, imagem, cestas}} />}
         style={estilos.lista}
     />
 }
